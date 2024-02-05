@@ -59,7 +59,8 @@ library
     import:           warnings
 
     -- Modules exported by the library.
-    exposed-modules:  MyLib
+    exposed-modules:
+      Chapter9.EnumExercise
 
     -- Modules included in this library but not exported.
     -- other-modules:
@@ -105,4 +106,5 @@ test-suite HPFFP-test
         HUnit ^>=1.6.2.0,
 
     other-modules:
-        Chapter9.Test
+        Chapter9.Test,
+        Chapter9.EnumExerciseTest
