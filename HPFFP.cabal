@@ -62,6 +62,7 @@ library
     exposed-modules:
       Chapter9.EnumExercise
       Chapter9.FearfulSymmetryExercise
+      Chapter9.ComprehendThyListsExercise
 
     -- Modules included in this library but not exported.
     -- other-modules:
@@ -109,4 +110,5 @@ test-suite HPFFP-test
     other-modules:
         Chapter9.Test,
         Chapter9.EnumExerciseTest,
-        Chapter9.FearfulSymmetryExerciseTest
+        Chapter9.FearfulSymmetryExerciseTest,
+        Chapter9.ComprehendThyListsExerciseTest,
