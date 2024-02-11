@@ -64,6 +64,7 @@ library
       Chapter9.FearfulSymmetryExercise
       Chapter9.ComprehendThyListsExercise
       Chapter9.SquareCubeExercise
+      Chapter9.FilteringExercise
 
     -- Modules included in this library but not exported.
     -- other-modules:
@@ -114,3 +115,4 @@ test-suite HPFFP-test
         Chapter9.FearfulSymmetryExerciseTest,
         Chapter9.ComprehendThyListsExerciseTest,
         Chapter9.SquareCubeExerciseTest,
+        Chapter9.FilteringExerciseTest,
