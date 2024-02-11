@@ -65,6 +65,7 @@ library
       Chapter9.ComprehendThyListsExercise
       Chapter9.SquareCubeExercise
       Chapter9.FilteringExercise
+      Chapter9.ZippingExercise
 
     -- Modules included in this library but not exported.
     -- other-modules:
@@ -116,3 +117,4 @@ test-suite HPFFP-test
         Chapter9.ComprehendThyListsExerciseTest,
         Chapter9.SquareCubeExerciseTest,
         Chapter9.FilteringExerciseTest,
+        Chapter9.ZippingExerciseTest,
