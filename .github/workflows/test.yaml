@@ -3,11 +3,18 @@ name: build
 jobs:
   runTest:
     name: run unit test
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        ghc-version: ["9.4.8"]
+        cabal-version: ["3.10.2.1"]
+
     steps:
       - uses: actions/checkout@v3
       - uses: haskell-actions/setup@v2
         with:
-          ghc-version: "9.4.8" # Resolves to the latest point release of GHC 8.8
-          cabal-version: "3.10.2.1" # Exact version of Cabal
+          ghc-version: ${{ matrix.ghc-version }} # Resolves to the latest point release of GHC 8.8
+          cabal-version: ${{ matrix.cabal-version }} # Exact version of Cabal
       - run: cabal test
