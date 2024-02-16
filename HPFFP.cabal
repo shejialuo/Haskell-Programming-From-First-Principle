@@ -60,12 +60,14 @@ library
 
     -- Modules exported by the library.
     exposed-modules:
+      Chapter8.Exercise
       Chapter9.EnumExercise
       Chapter9.FearfulSymmetryExercise
       Chapter9.ComprehendThyListsExercise
       Chapter9.SquareCubeExercise
       Chapter9.FilteringExercise
       Chapter9.ZippingExercise
+      Chapter9.Exercise
 
     -- Modules included in this library but not exported.
     -- other-modules:
@@ -111,6 +113,8 @@ test-suite HPFFP-test
         HUnit ^>=1.6.2.0,
 
     other-modules:
+        Chapter8.ExerciseTest,
+        Chapter8.Test,
         Chapter9.Test,
         Chapter9.EnumExerciseTest,
         Chapter9.FearfulSymmetryExerciseTest,
@@ -118,3 +122,4 @@ test-suite HPFFP-test
         Chapter9.SquareCubeExerciseTest,
         Chapter9.FilteringExerciseTest,
         Chapter9.ZippingExerciseTest,
+        Chapter9.ExerciseTest,
