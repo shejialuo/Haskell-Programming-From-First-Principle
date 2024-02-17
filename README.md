@@ -6,3 +6,7 @@ The code is organized as the following:
 
 + `src`: the source code (the implementation of the exercises.)
 + `test`: the test code.
+
+---
+
+Hope this repository will help you to learn Haskell.
