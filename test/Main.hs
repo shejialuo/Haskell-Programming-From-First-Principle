@@ -1,6 +1,7 @@
 module Main (main) where
 
 import Chapter3.Test
+import Chapter4.Test
 import Chapter8.Test
 import Chapter9.Test
 import Control.Monad
@@ -11,6 +12,7 @@ allTests :: Test
 allTests =
   TestList
     [ Chapter3.Test.testSuite,
+      Chapter4.Test.testSuite,
       Chapter8.Test.testSuite,
       Chapter9.Test.testSuite
     ]

@@ -61,6 +61,8 @@ library
     -- Modules exported by the library.
     exposed-modules:
       Chapter3.Exercise
+      Chapter4.MoodSwingExercise
+      Chapter4.Exercise
       Chapter8.Exercise
       Chapter9.EnumExercise
       Chapter9.FearfulSymmetryExercise
@@ -116,6 +118,9 @@ test-suite HPFFP-test
     other-modules:
         Chapter3.ExerciseTest
         Chapter3.Test
+        Chapter4.Test
+        Chapter4.MoodSwingExerciseTest
+        Chapter4.ExerciseTest
         Chapter8.ExerciseTest
         Chapter8.Test
         Chapter9.Test
