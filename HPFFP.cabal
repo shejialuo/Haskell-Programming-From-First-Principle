@@ -122,6 +122,8 @@ test-suite HPFFP-test
         Chapter4.Test
         Chapter4.MoodSwingExerciseTest
         Chapter4.ExerciseTest
+        Chapter6.EqInstancesExerciseTest
+        Chapter6.Test
         Chapter8.ExerciseTest
         Chapter8.Test
         Chapter9.Test
