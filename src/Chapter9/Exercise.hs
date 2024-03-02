@@ -37,16 +37,24 @@ squishMap :: (a -> [b]) -> [a] -> [b]
 squishMap func = foldr ((++) . func) []
 
 squishAgain :: [[a]] -> [a]
-squishAgain = undefined
+squishAgain = squishMap id
 
 myMaximumBy :: (a -> a -> Ordering) -> [a] -> a
-myMaximumBy = undefined
+myMaximumBy _ [] = error "empty list"
+myMaximumBy _ [x] = x
+myMaximumBy f (x : xs) = foldr func x xs
+  where
+    func y acc = if f y acc == GT then y else acc
 
 myMinimumBy :: (a -> a -> Ordering) -> [a] -> a
-myMinimumBy = undefined
+myMinimumBy _ [] = error "empty list"
+myMinimumBy _ [x] = x
+myMinimumBy f (x : xs) = foldr func x xs
+  where
+    func y acc = if f y acc == LT then y else acc
 
 myMaximum :: (Ord a) => [a] -> a
-myMaximum = undefined
+myMaximum = myMaximumBy compare
 
 myMinimum :: (Ord a) => [a] -> a
-myMinimum = undefined
+myMinimum = myMinimumBy compare
