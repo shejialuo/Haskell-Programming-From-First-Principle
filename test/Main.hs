@@ -3,6 +3,7 @@ module Main (main) where
 import Chapter3.Test
 import Chapter4.Test
 import Chapter6.Test
+import Chapter7.Test
 import Chapter8.Test
 import Chapter9.Test
 import Control.Monad
@@ -15,6 +16,7 @@ allTests =
     [ Chapter3.Test.testSuite,
       Chapter4.Test.testSuite,
       Chapter6.Test.testSuite,
+      Chapter7.Test.testSuite,
       Chapter8.Test.testSuite,
       Chapter9.Test.testSuite
     ]

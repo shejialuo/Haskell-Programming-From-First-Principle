@@ -64,6 +64,7 @@ library
       Chapter4.MoodSwingExercise
       Chapter4.Exercise
       Chapter6.EqInstancesExercise
+      Chapter7.Exercise
       Chapter8.Exercise
       Chapter9.EnumExercise
       Chapter9.FearfulSymmetryExercise
@@ -124,6 +125,8 @@ test-suite HPFFP-test
         Chapter4.ExerciseTest
         Chapter6.EqInstancesExerciseTest
         Chapter6.Test
+        Chapter7.ExerciseTest
+        Chapter7.Test
         Chapter8.ExerciseTest
         Chapter8.Test
         Chapter9.Test
