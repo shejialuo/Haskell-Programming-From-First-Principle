@@ -74,6 +74,7 @@ library
       Chapter9.ZippingExercise
       Chapter9.Exercise
       Chapter11.VehiclesExercise
+      Chapter11.Exercise
 
     -- Modules included in this library but not exported.
     -- other-modules:
@@ -140,3 +141,4 @@ test-suite HPFFP-test
         Chapter9.ExerciseTest
         Chapter11.Test
         Chapter11.VehiclesExerciseTest
+        Chapter11.ExerciseTest
