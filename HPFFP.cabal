@@ -75,6 +75,7 @@ library
       Chapter9.Exercise
       Chapter11.VehiclesExercise
       Chapter11.Exercise
+      Chapter12.Exercise
 
     -- Modules included in this library but not exported.
     -- other-modules:
@@ -142,3 +143,5 @@ test-suite HPFFP-test
         Chapter11.Test
         Chapter11.VehiclesExerciseTest
         Chapter11.ExerciseTest
+        Chapter12.ExerciseTest
+        Chapter12.Test
