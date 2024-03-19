@@ -79,3 +79,32 @@ flipMaybe = foldr func (Just [])
     func Nothing _ = Nothing
     func _ Nothing = Nothing
     func (Just acc) (Just x) = Just (acc : x)
+
+lefts' :: [Either a b] -> [a]
+lefts' = foldr func []
+  where
+    func (Left x) acc = x : acc
+    func _ acc = acc
+
+right' :: [Either a b] -> [b]
+right' = foldr func []
+  where
+    func (Right x) acc = x : acc
+    func _ acc = acc
+
+partitionEithers' :: [Either a b] -> ([a], [b])
+partitionEithers' xs = (lefts' xs, right' xs)
+
+eitherMaybe' :: (b -> c) -> Either a b -> Maybe c
+eitherMaybe' f (Right x) = Just (f x)
+eitherMaybe' _ _ = Nothing
+
+either' :: (a -> c) -> (b -> c) -> Either a b -> c
+either' func _ (Left x) = func x
+either' _ func (Right x) = func x
+
+eitherMaybe'' :: (b -> c) -> Either a b -> Maybe c
+eitherMaybe'' f = either' (const Nothing) (Just . f)
+
+myIterate :: (a -> a) -> a -> [a]
+myIterate f x = x : myIterate f (f x)

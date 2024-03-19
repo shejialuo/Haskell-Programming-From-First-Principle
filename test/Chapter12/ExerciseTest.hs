@@ -5,17 +5,22 @@ import Chapter12.Exercise
     catMaybes,
     countTheBeforeVowel,
     countVowels,
+    eitherMaybe',
+    eitherMaybe'',
     flipMaybe,
     fromMaybe,
     integerToNat,
     isJust,
     isNothing,
+    lefts',
     listToMaybe,
     maybeToList,
     mayybee,
     mkWord,
     natToInteger,
+    partitionEithers',
     replaceThe,
+    right',
   )
 import Test.HUnit (Test (TestCase, TestList), assertEqual)
 
@@ -235,6 +240,88 @@ testFlipMaybe =
           $ flipMaybe [Just 1, Just 2, Just 3 :: Maybe Int]
     ]
 
+testLeft' :: Test
+testLeft' =
+  TestList
+    [ TestCase $ do
+        assertEqual
+          "lefts' [Left 1, Right 2, Left 3, Right 4]"
+          [1, 3]
+          $ lefts' [Left 1, Right 2, Left 3, Right 4 :: Either Int Int]
+        assertEqual
+          "lefts' [Right 2, Right 4]"
+          []
+          $ lefts' [Right 2, Right 4 :: Either Int Int]
+        assertEqual
+          "lefts' [Left 1, Left 3]"
+          [1, 3]
+          $ lefts' [Left 1, Left 3 :: Either Int Int]
+    ]
+
+testRight' :: Test
+testRight' =
+  TestList
+    [ TestCase $ do
+        assertEqual
+          "right' [Left 1, Right 2, Left 3, Right 4]"
+          [2, 4]
+          $ right' ([Left 1, Right 2, Left 3, Right 4] :: [Either Int Int])
+        assertEqual
+          "right' [Right 2, Right 4]"
+          [2, 4]
+          $ right' ([Right 2, Right 4] :: [Either Int Int])
+        assertEqual
+          "right' [Left 1, Left 3]"
+          []
+          $ right' ([Left 1, Left 3] :: [Either Int Int])
+    ]
+
+testPartitionEithers' :: Test
+testPartitionEithers' =
+  TestList
+    [ TestCase $ do
+        assertEqual
+          "partitionEithers' [Left 1, Right 2, Left 3, Right 4]"
+          ([1, 3], [2, 4])
+          $ partitionEithers' [Left 1, Right 2, Left 3, Right 4 :: Either Int Int]
+        assertEqual
+          "partitionEithers' [Right 2, Right 4]"
+          ([], [2, 4])
+          $ partitionEithers' [Right 2, Right 4 :: Either Int Int]
+        assertEqual
+          "partitionEithers' [Left 1, Left 3]"
+          ([1, 3], [])
+          $ partitionEithers' [Left 1, Left 3 :: Either Int Int]
+    ]
+
+testEitherMaybe' :: Test
+testEitherMaybe' =
+  TestList
+    [ TestCase $ do
+        assertEqual
+          "eitherMaybe' (+1) (Left 1)"
+          Nothing
+          $ eitherMaybe' (+ 1) (Left 1 :: Either Int Int)
+        assertEqual
+          "eitherMaybe' (+1) (Right 1)"
+          (Just 2)
+          $ eitherMaybe' (+ 1) (Right 1 :: Either Int Int)
+    ]
+
+testEitherMaybe'' :: Test
+testEitherMaybe'' =
+  TestList
+    [ TestCase $ do
+        assertEqual
+          "eitherMaybe' (+1) (Left 1)"
+          Nothing
+          $ eitherMaybe'' (+ 1) (Left 1 :: Either Int Int)
+        assertEqual
+          "eitherMaybe' (+1) (Right 1)"
+          (Just 2)
+          $ eitherMaybe' (+ 1) (Right 1 :: Either Int Int)
+    ]
+
 testSuite :: Test
 testSuite =
   TestList
@@ -250,5 +337,10 @@ testSuite =
       testFromMaybe,
       testListToMaybe,
       testCatMaybes,
-      testFlipMaybe
+      testFlipMaybe,
+      testLeft',
+      testRight',
+      testPartitionEithers',
+      testEitherMaybe',
+      testEitherMaybe''
     ]
