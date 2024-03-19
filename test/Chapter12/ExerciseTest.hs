@@ -2,6 +2,7 @@ module Chapter12.ExerciseTest where
 
 import Chapter12.Exercise
   ( Nat (Succ, Zero),
+    betterIterate,
     catMaybes,
     countTheBeforeVowel,
     countVowels,
@@ -17,6 +18,8 @@ import Chapter12.Exercise
     maybeToList,
     mayybee,
     mkWord,
+    myIterate,
+    myUnfoldr,
     natToInteger,
     partitionEithers',
     replaceThe,
@@ -322,6 +325,46 @@ testEitherMaybe'' =
           $ eitherMaybe' (+ 1) (Right 1 :: Either Int Int)
     ]
 
+testMyIterate :: Test
+testMyIterate =
+  TestList
+    [ TestCase $ do
+        assertEqual
+          "myIterate (+1) 0"
+          ([0, 1, 2, 3, 4, 5] :: [Int])
+          $ take 6
+          $ myIterate (+ 1) 0
+    ]
+
+testMyUnfoldr :: Test
+testMyUnfoldr =
+  TestList
+    [ TestCase $ do
+        assertEqual
+          "myUnfoldr (\\b -> if b == 0 then Nothing else Just (b, b - 1)) 5"
+          ([5, 4, 3, 2, 1] :: [Int])
+          $ myUnfoldr (\b -> if b == 0 then Nothing else Just (b, b - 1)) 5
+        assertEqual
+          "myUnfoldr (\\b -> if b == 0 then Nothing else Just (b, b - 1)) 0"
+          ([] :: [Int])
+          $ myUnfoldr (\b -> if b == 0 then Nothing else Just (b, b - 1)) 0
+        assertEqual
+          "myUnfoldr (\\b -> if b == 0 then Nothing else Just (b, b - 1)) 1"
+          ([1] :: [Int])
+          $ myUnfoldr (\b -> if b == 0 then Nothing else Just (b, b - 1)) 1
+    ]
+
+testBetterIterate :: Test
+testBetterIterate =
+  TestList
+    [ TestCase $ do
+        assertEqual
+          "betterIterate (+1) 0"
+          ([0, 1, 2, 3, 4, 5] :: [Int])
+          $ take 6
+          $ betterIterate (+ 1) 0
+    ]
+
 testSuite :: Test
 testSuite =
   TestList
@@ -342,5 +385,8 @@ testSuite =
       testRight',
       testPartitionEithers',
       testEitherMaybe',
-      testEitherMaybe''
+      testEitherMaybe'',
+      testMyIterate,
+      testMyUnfoldr,
+      testBetterIterate
     ]
