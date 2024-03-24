@@ -14,3 +14,16 @@ instance (Semigroup a) => Semigroup (Optional a) where
 instance (Monoid a) => Monoid (Optional a) where
   mempty :: (Monoid a) => Optional a
   mempty = Nada
+
+newtype First' a = First' {getFirst' :: Optional a}
+  deriving (Eq, Show)
+
+instance (Semigroup a) => Semigroup (First' a) where
+  (<>) :: First' a -> First' a -> First' a
+  (<>) (First' (Nada)) x = x
+  (<>) x (First' (Nada)) = x
+  (<>) (First' x) (First' y) = First' (x <> y)
+
+instance (Monoid a) => Monoid (First' a) where
+  mempty :: First' a
+  mempty = First' Nada
