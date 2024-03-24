@@ -77,6 +77,7 @@ library
       Chapter11.Exercise
       Chapter12.Exercise
       Chapter15.OptionalMonoidExercise
+      Chapter15.Exercise
 
     -- Modules included in this library but not exported.
     -- other-modules:
@@ -147,4 +148,5 @@ test-suite HPFFP-test
         Chapter12.ExerciseTest
         Chapter12.Test
         Chapter15.OptionalMonoidExerciseTest
+        Chapter15.ExerciseTest
         Chapter15.Test
