@@ -2,6 +2,7 @@ module Main (main) where
 
 import Chapter11.Test
 import Chapter12.Test
+import Chapter15.Test
 import Chapter3.Test
 import Chapter4.Test
 import Chapter6.Test
@@ -22,7 +23,8 @@ allTests =
       Chapter8.Test.testSuite,
       Chapter9.Test.testSuite,
       Chapter11.Test.testSuite,
-      Chapter12.Test.testSuite
+      Chapter12.Test.testSuite,
+      Chapter15.Test.testSuite
     ]
 
 main :: IO ()

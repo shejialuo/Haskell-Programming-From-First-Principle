@@ -76,6 +76,7 @@ library
       Chapter11.VehiclesExercise
       Chapter11.Exercise
       Chapter12.Exercise
+      Chapter15.OptionalMonoidExercise
 
     -- Modules included in this library but not exported.
     -- other-modules:
@@ -145,3 +146,5 @@ test-suite HPFFP-test
         Chapter11.ExerciseTest
         Chapter12.ExerciseTest
         Chapter12.Test
+        Chapter15.OptionalMonoidExerciseTest
+        Chapter15.Test
